@@ -5,7 +5,7 @@
 
 docker_local:
 	echo "Starting local environment"
-	docker compose -f docker-compose.yml up -d
+	docker compose -f docker-compose.yml up -d --force-recreate
 
 # ==============================================================================
 # Application commands

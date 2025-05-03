@@ -26,22 +26,22 @@ func (c *SAuthAppContext) CreateApp() *fiber.App {
 	return c.app
 }
 
-func (c *SAuthAppContext) createUseCases() {
+func (c *SAuthAppContext) createUseCases() *usecases.SAuthUsecase {
 	c.usecases = usecases.NewAuthUsecase(config.AuthDatabase)
+	return c.usecases
 }
 
-func (c *SAuthAppContext) createControllers() {
-	c.createUseCases()
+func (c *SAuthAppContext) createControllers() *controllers.SAuthController {
 	c.controllers = &controllers.SAuthController{
-		Usecase: c.usecases,
+		Usecase: c.createUseCases(),
 	}
+	return c.controllers
 }
 
 func (c *SAuthAppContext) createRouter() {
-	c.createControllers()
 	c.routes = &delivery.SAuthInRoute{
 		App: c.app,
-		AuthController: c.controllers,
+		AuthController: c.createControllers(),
 	}
 	c.routes.Setup()
 }

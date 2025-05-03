@@ -1,0 +1,18 @@
+services:
+  apigateway:
+    extends:
+      file: ./infrastructure/tyk/docker-compose.yml
+      service: tyk
+    depends_on:
+      - redis
+  redis:
+    extends:
+      file: ./infrastructure/redis/docker-compose.yml
+      service: redis
+  mysql:
+    extends:
+      file: ./infrastructure/mysql/docker-compose.yml
+      service: mysql
+
+networks:
+  sd-001-link-shortener:

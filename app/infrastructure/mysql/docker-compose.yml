@@ -1,0 +1,13 @@
+services:
+  mysql:
+    image: mysql:9.3.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    networks:
+      - sd-001-link-shortener
+    ports:
+      - 3306:3306
+    volumes:
+      - ./tmp/data:/var/lib/mysql

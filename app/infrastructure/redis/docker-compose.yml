@@ -1,0 +1,7 @@
+services:
+  redis:
+    image: redis:6.2.7-alpine
+    networks:
+      - sd-001-link-shortener
+    ports:
+      - 6379:6379

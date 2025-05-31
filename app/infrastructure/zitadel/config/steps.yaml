@@ -16,6 +16,10 @@ FirstInstance:
       PreferredLanguage: en
       Password: Password1!
       PasswordChangeRequired: false
+    Machine:
+      Machine:
+        Username: pocketlink
+        Name: Pocketlink
 
 CorrectCreationDate:
   FailAfter: 5m

@@ -6,5 +6,21 @@
   "host": ["http://localhost"],
   "timeout": "3000ms",
   "cache_ttl": "300s",
-  "endpoints": []
+  "endpoints": [
+    {
+      "endpoint": "/v1/auth/users/me",
+      "method": "GET",
+      "backend": [
+        {
+          "url_pattern": "/auth/v1/users/me",
+          "host": ["http://zitadel:8080"],
+          "extra_config": {
+            "backend/http": {
+              "return_error_code": true
+            }
+          }
+        }
+      ]
+    }
+  ]
 }

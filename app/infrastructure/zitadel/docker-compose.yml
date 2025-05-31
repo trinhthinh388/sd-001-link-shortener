@@ -4,7 +4,7 @@ services:
     networks:
       - sd-001-link-shortener
     image: 'ghcr.io/zitadel/zitadel:v3.0.4'
-    command: 'start-from-init --steps /config/steps.yaml --masterkey "MasterkeyNeedsToHave32Characters" --tlsMode disabled'
+    command: 'start-from-init --config /config/defaults.yaml --steps /config/steps.yaml --masterkey "MasterkeyNeedsToHave32Characters" --tlsMode disabled'
     volumes:
       - './config:/config:ro'
     environment:

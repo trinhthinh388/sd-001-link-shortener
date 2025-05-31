@@ -1,0 +1,13 @@
+services:
+  krakend:
+    restart: always
+    image: devopsfaith/krakend:watch
+    ports:
+      - '1234:1234'
+      - '7777:7777'
+      - '8090:8090'
+    command: ['run', '-d', '-c', '/etc/krakend/krakend.json']
+    networks:
+      - sd-001-link-shortener
+    volumes:
+      - ./config:/etc/krakend

@@ -1,0 +1,27 @@
+FirstInstance:
+  Skip: false
+  InstanceName: POCKETLINK
+  DefaultLanguage: en
+  Org:
+    Name: Pocketlink
+    Human:
+      UserName: admin
+      FirstName: Admin
+      LastName: Admin
+      NickName: Admin
+      DisplayName: Admin
+      Email:
+        Address: admin@pocketlink.com
+        Verified: true
+      PreferredLanguage: en
+      Password: Password1!
+      PasswordChangeRequired: false
+
+CorrectCreationDate:
+  FailAfter: 5m
+
+AddEventCreatedAt:
+  BulkAmount: 100
+
+FillFields:
+  BatchSize: 1000

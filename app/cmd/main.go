@@ -2,13 +2,16 @@ package main
 
 import (
 	core "app/core/db"
-	"app/services/auth"
+	"app/services/middleware"
 	"fmt"
 )
 
+const DSN = "postgres://postgres:postgres@localhost:5432/pocketlink"
+
 func main() {
-	fmt.Println("Initializing databases...")
-	core.InitDatabase("root:password@tcp(127.0.0.1:3306)/auth?charset=utf8mb4&parseTime=True&loc=Local")
+	fmt.Println("Setting up database...")
+	core.Setup(DSN)
+
 	fmt.Println("Starting server...")
-	auth.StartAuthService()	
+	middleware.Start()
 }

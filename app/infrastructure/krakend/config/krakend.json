@@ -1,0 +1,10 @@
+{
+  "$schema": "https://www.krakend.io/schema/v3.json",
+  "version": 3,
+  "name": "SD001 Link Shortener API Gateway",
+  "port": 7777,
+  "host": ["http://localhost"],
+  "timeout": "3000ms",
+  "cache_ttl": "300s",
+  "endpoints": []
+}

@@ -1,18 +1,22 @@
 services:
   apigateway:
     extends:
-      file: ./infrastructure/tyk/docker-compose.yml
-      service: tyk
+      file: ./infrastructure/krakend/docker-compose.yml
+      service: krakend
     depends_on:
       - redis
   redis:
     extends:
       file: ./infrastructure/redis/docker-compose.yml
       service: redis
-  mysql:
+  postgres:
     extends:
-      file: ./infrastructure/mysql/docker-compose.yml
-      service: mysql
+      file: ./infrastructure/postgres/docker-compose.yml
+      service: postgres
+  zitadel:
+    extends:
+      file: ./infrastructure/zitadel/docker-compose.yml
+      service: zitadel
 
 networks:
   sd-001-link-shortener:

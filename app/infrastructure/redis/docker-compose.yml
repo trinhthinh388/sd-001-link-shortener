@@ -1,6 +1,9 @@
 services:
   redis:
+    restart: 'always'
     image: redis:6.2.7-alpine
+    healthcheck:
+      test: ['CMD', 'redis-cli', '--raw', 'incr', 'ping']
     networks:
       - sd-001-link-shortener
     ports:

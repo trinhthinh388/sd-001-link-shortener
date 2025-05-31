@@ -1,0 +1,25 @@
+services:
+  zitadel:
+    restart: 'always'
+    networks:
+      - sd-001-link-shortener
+    image: 'ghcr.io/zitadel/zitadel:v3.0.4'
+    command: 'start-from-init --steps /config/steps.yaml --masterkey "MasterkeyNeedsToHave32Characters" --tlsMode disabled'
+    volumes:
+      - './config:/config:ro'
+    environment:
+      ZITADEL_DATABASE_POSTGRES_HOST: postgres
+      ZITADEL_DATABASE_POSTGRES_PORT: 5432
+      ZITADEL_DATABASE_POSTGRES_DATABASE: zitadel
+      ZITADEL_DATABASE_POSTGRES_USER_USERNAME: zitadel
+      ZITADEL_DATABASE_POSTGRES_USER_PASSWORD: zitadel
+      ZITADEL_DATABASE_POSTGRES_USER_SSL_MODE: disable
+      ZITADEL_DATABASE_POSTGRES_ADMIN_USERNAME: postgres
+      ZITADEL_DATABASE_POSTGRES_ADMIN_PASSWORD: postgres
+      ZITADEL_DATABASE_POSTGRES_ADMIN_SSL_MODE: disable
+      ZITADEL_EXTERNALSECURE: false
+    depends_on:
+      postgres:
+        condition: 'service_healthy'
+    ports:
+      - '8080:8080'

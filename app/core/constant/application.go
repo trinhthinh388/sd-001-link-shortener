@@ -8,7 +8,7 @@ const (
 const (
 	ROLE_ADMIN_ID       string = "admin"
 	ROLE_USER_ID        string = "user"
-	ROLE_SUPER_ADMIN_ID string = "super.admin"
+	ROLE_SUPER_ADMIN_ID string = "superadmin"
 )
 
 var ROLE_IDS = []string{

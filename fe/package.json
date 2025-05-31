@@ -1,0 +1,36 @@
+{
+  "name": "fe",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare": "brif codegen",
+    "build": "react-router build",
+    "dev": "react-router dev",
+    "start": "react-router-serve ./build/server/index.js",
+    "typecheck": "react-router typegen && tsc"
+  },
+  "dependencies": {
+    "@brifui/components": "^0.0.52",
+    "@brifui/styled": "^0.0.29",
+    "@react-router/node": "^7.5.3",
+    "@react-router/serve": "^7.5.3",
+    "isbot": "^5.1.27",
+    "nanoid": "^5.1.5",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-hook-form": "^7.56.4",
+    "react-router": "^7.5.3"
+  },
+  "devDependencies": {
+    "@brifui/cli": "^0.0.27",
+    "@brifui/theme": "^0.0.27",
+    "@react-router/dev": "^7.5.3",
+    "@types/node": "^20",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.3",
+    "vite-tsconfig-paths": "^5.1.4"
+  },
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
+}
